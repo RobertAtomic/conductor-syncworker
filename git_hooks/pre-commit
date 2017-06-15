@@ -1,0 +1,6 @@
+#!/bin/bash -e
+echo "Running pre-commit hook"
+
+nosetests --with-coverage --cover-min-percentage=100 --cover-package=conductor
+git-pylint-commit-hook --limit 9.0
+flake8 conductor
